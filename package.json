@@ -4,16 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd client && npm run start",
+    "start": "node server/index.js",
+    "heroku-postbuild": "npm install --prefix client --only=dev && npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bmcglauser/templater.git"
+  },
+  "engines": {
+    "node": "12.18.2",
+    "npm": "7.0.14"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bmcglauser/templater/issues"
   },
-  "homepage": "https://github.com/bmcglauser/templater#readme"
+  "homepage": "https://github.com/bmcglauser/templater#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
 }
