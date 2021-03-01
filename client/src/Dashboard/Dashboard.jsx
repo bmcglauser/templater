@@ -6,8 +6,9 @@ const Dashboard = () => {
   const [numberOfFields, setNumberOfFields] = useState(1);
   const [fields, setFields] = useState([]);
   const [fieldData, setFieldData] = useState({});
-  const [textArea, setTextArea] = useState('');
-  const [cachedTextArea, setCachedTextArea] = useState('');
+  const [templateText, setTemplateText] = useState('');
+  const [textToDisplay, setTextToDisplay] = useState('');
+  const [replaced, setReplaced] = useState(false);
 
   function numberHandler(e) {
     const newValue = e.target.value;
@@ -16,21 +17,31 @@ const Dashboard = () => {
   function textHandler(e) {
     const key = e.target.name;
     const value = e.target.value;
-    if (key === 'textarea') {
-      setTextArea(value);
+    if (key === 'textarea' && !replaced) {
+      setTemplateText(value);
     } else {
       setFieldData(data => {return {...data, [key]: value}});
     }
   }
-  function resetHandler(e) {
-    setTextArea(cachedTextArea);
-    setFieldData({});
+  function resetFields(e) {
+    setFieldData(data=> {
+      for (let key in data) {
+        data[key] = '';
+      }
+      return data;
+    });
   }
+  function resetReplace(e) {
+    e.preventDefault();
+    setTextToDisplay(templateText);
+    setReplaced(false);
+  }
+
   function replaceHandler (e) {
     e.preventDefault();
-    setCachedTextArea(textArea);
-    let newText = replaceText(textArea, fieldData);
-    setTextArea(newText);
+    let newText = replaceText(templateText, fieldData);
+    setTextToDisplay(newText);
+    setReplaced(true);
   }
 
   useEffect(() => {
@@ -51,11 +62,11 @@ const Dashboard = () => {
           <input className="number-of-fields" type="number" value={numberOfFields} onChange={numberHandler}/>
         </label>
         {fields}
-        <input type="reset" className="reset-button" onClick={resetHandler}/>
+        <input type="reset" className="reset-button" value="Reset fields" onClick={resetFields}/>
       </form>
       <div className="right-block">
-        <textarea name="textarea" id="textarea" value={textArea} onChange={textHandler}/>
-        <button onClick={replaceHandler}>Replace</button>
+        <textarea name="textarea" id="textarea" value={replaced ? textToDisplay : templateText} onChange={textHandler}/>
+        <button onClick={replaced ? resetReplace : replaceHandler}>{replaced ? 'Go back' : 'Replace'}</button>
       </div>
     </div>
     </>
