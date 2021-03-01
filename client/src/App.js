@@ -30,13 +30,14 @@ function App() {
               </p>
               <p className="instructions">
                 For example, you could write "Hello #FIELD1#, nice to meet you!"
-                and then fill in the box titled FIELD 1. Feel free to add as many
-                FIELDS as you want for your template!
+                and then fill in the box titled FIELD 1. Feel free to add as
+                many FIELDS as you want for your template!
               </p>
               <p className="instructions">
-                When you're all done, click "Replace" at the bottom of the page to
-                get your full document. When you're ready to move on, just click
-                reset on the form!
+                When you're all done, click "Replace" at the bottom of the page
+                to get your full document. When you're ready to move on, just
+                the same button to 'Go Back' and change up your template and
+                fields.
               </p>
             </div>
             <button className="hide-button" onClick={toggleInstructions}>
