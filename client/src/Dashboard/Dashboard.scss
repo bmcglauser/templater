@@ -1,0 +1,54 @@
+@use '../App.scss' as *;
+
+.dashboard-wrapper {
+  display: flex;
+  overflow: auto;
+  margin: 1rem;
+  .input-fields {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    .number-of-fields {
+      width: 3rem;
+      flex-grow: 0;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      input {
+        flex-grow: 1;
+        font-size: 1.5rem;
+        padding: 2px;
+        margin: .25rem 1rem;
+      
+      }
+    }
+    .reset-button {
+      margin: 1rem 0 0 25%;
+      width: 50%;
+      height: 2rem;
+      font-size: 1.15rem;
+    }
+  }
+
+
+  .right-block {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+      padding: 10px;
+      font-size: 1.5rem;
+      min-width: 400px;
+      min-height: 600px;
+    }
+    button {
+      margin: .5rem 0 0;
+      height: 2rem;
+      font-size: 1.15rem;
+    }
+  }
+}
