@@ -104,6 +104,10 @@ const Dashboard = () => {
             id="textarea"
             value={replaced ? textToDisplay : templateText}
             onChange={textHandler}
+            style={{
+              background: replaced ? "lightgray" : "white",
+            }}
+            placeholder={replaced ? "" : "Type here!"}
           />
           <button onClick={replaced ? resetReplace : replaceHandler}>
             {replaced ? "Go back" : "Replace"}
