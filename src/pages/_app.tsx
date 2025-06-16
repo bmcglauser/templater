@@ -2,6 +2,8 @@ import { type AppType } from "next/dist/shared/lib/utils";
 import { Geist } from "next/font/google";
 
 import "~/styles/globals.css";
+import "~/styles/App.css";
+import "~/styles/Dashboard.css";
 
 const geist = Geist({
   subsets: ["latin"],

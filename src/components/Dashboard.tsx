@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "~/styles/Dashboard.css";
 
 export function replaceText(
   textarea: string,

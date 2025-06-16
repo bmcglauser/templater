@@ -1,6 +1,5 @@
 import * as React from "react";
 import Dashboard from "~/components/Dashboard";
-import "~/styles/App.css";
 
 export default function Home() {
   const [showInstructions, setShowInstructions] = React.useState(false);
