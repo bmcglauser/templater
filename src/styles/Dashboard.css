@@ -20,19 +20,19 @@
         font-size: 1.5rem;
         padding: 2px;
         margin: 0.25rem 1rem;
+        border-radius: 0.75rem;
+        border: solid 1px;
       }
     }
     .reset-button,
-    .add-button,
-    .remove-button {
+    .add-button {
       margin: 1rem 0 0;
       width: 25%;
       align-self: flex-start;
       height: 2rem;
       font-size: 1.15rem;
     }
-    .add-button,
-    .remove-button {
+    .add-button {
       width: 50%;
       align-self: center;
     }
