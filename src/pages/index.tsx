@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './App.scss';
-import Dashboard from './Dashboard';
+import * as React from "react";
+import Dashboard from "~/components/Dashboard";
+import "~/styles/App.css";
 
-function App() {
-  const [showInstructions, setShowInstructions] = useState(false);
+export default function Home() {
+  const [showInstructions, setShowInstructions] = React.useState(false);
 
-  function toggleInstructions(e) {
+  function toggleInstructions(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
     setShowInstructions((i) => !i);
   }
@@ -17,7 +17,7 @@ function App() {
       </div>
       <div
         className={`instructions-wrapper ${
-          showInstructions ? 'shown' : 'hidden'
+          showInstructions ? "shown" : "hidden"
         }`}
       >
         {showInstructions ? (
@@ -54,5 +54,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
