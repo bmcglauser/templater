@@ -5,7 +5,7 @@ export function replaceText(
   textarea: string,
   fieldData: Record<string, string>,
 ) {
-  for (let key in fieldData) {
+  for (const key in fieldData) {
     if (fieldData.hasOwnProperty(key)) {
       const value = fieldData[key];
       if (value) textarea = textarea.replaceAll(`#${key}#`, value);
@@ -41,7 +41,7 @@ const Dashboard = () => {
   }
   function resetFields(e: React.MouseEvent<HTMLInputElement>) {
     setFieldData((data) => {
-      for (let key in data) {
+      for (const key in data) {
         data[key] = "";
       }
       return data;
@@ -55,7 +55,7 @@ const Dashboard = () => {
 
   function replaceHandler(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    let newText = replaceText(templateText, fieldData);
+    const newText = replaceText(templateText, fieldData);
     setTextToDisplay(newText);
     setReplaced(true);
   }
