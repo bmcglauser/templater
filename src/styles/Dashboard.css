@@ -22,11 +22,19 @@
         margin: 0.25rem 1rem;
       }
     }
-    .reset-button {
-      margin: 1rem 0 0 25%;
-      width: 50%;
+    .reset-button,
+    .add-button,
+    .remove-button {
+      margin: 1rem 0 0;
+      width: 25%;
+      align-self: flex-start;
       height: 2rem;
       font-size: 1.15rem;
+    }
+    .add-button,
+    .remove-button {
+      width: 50%;
+      align-self: center;
     }
   }
 

@@ -21,10 +21,6 @@ const Dashboard = () => {
   const [textToDisplay, setTextToDisplay] = useState("");
   const [replaced, setReplaced] = useState(false);
 
-  function numberHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    const newValue = +e.target.value;
-    setNumberOfFields((val) => (newValue < 0 ? val : newValue));
-  }
   function textHandler(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
@@ -38,13 +34,22 @@ const Dashboard = () => {
       });
     }
   }
-  function resetFields(e: React.MouseEvent<HTMLInputElement>) {
+  function clearFields(e: React.MouseEvent<HTMLInputElement>) {
     setFieldData((data) => {
       for (const key in data) {
         data[key] = "";
       }
       return data;
     });
+  }
+  function resetForm(e: React.MouseEvent<HTMLInputElement>) {
+    setNumberOfFields(1);
+  }
+  function incrementFields(e: React.MouseEvent<HTMLInputElement>) {
+    setNumberOfFields((n) => n + 1);
+  }
+  function decrementFields(e: React.MouseEvent<HTMLInputElement>) {
+    setNumberOfFields((n) => n - 1);
   }
   function resetReplace(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -81,21 +86,25 @@ const Dashboard = () => {
     <>
       <div className="dashboard-wrapper">
         <form className="input-fields">
-          <label>
-            How many input fields would you like?
-            <input
-              className="number-of-fields"
-              type="number"
-              value={numberOfFields}
-              onChange={numberHandler}
-            />
-          </label>
           {fields}
+
+          <input
+            type="button"
+            className="add-button"
+            value="Add field"
+            onClick={incrementFields}
+          />
           <input
             type="reset"
             className="reset-button"
-            value="Reset fields"
-            onClick={resetFields}
+            value="Clear all fields"
+            onClick={clearFields}
+          />
+          <input
+            type="reset"
+            className="reset-button"
+            value="Reset form"
+            onClick={resetForm}
           />
         </form>
         <div className="right-block">
